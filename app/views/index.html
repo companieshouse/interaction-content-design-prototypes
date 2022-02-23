@@ -1,0 +1,75 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  All of our products
+{% endblock %}
+
+{% block content %}
+  <div id="JPO">
+    <div class="JPO-inner">
+      <!-- Add a button to close the popup (optional) -->
+      <p class="JPO_close">X</p>
+      <h3 class="govuk-heading-m">Sign up to our newsletter and get 10% off your first order!</h3>
+      {{ govukButton({
+        text: "Sign up",
+        classes: "govuk-!-margin-top-4"
+      }) }}
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-l">
+        Sign up
+      </h1>
+      {{ govukInput({
+      label: {
+        text: "Name"
+      },
+      id: "sign-up-name",
+      name: "sign-up-name"
+      }) }}
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="sign-up-email" name="event-name" placeholder="Email address" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="sign-up-password" type="password" name="event-name" placeholder="Enter password" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="sign-up-password-confirm" placeholder="Confirm password" name="event-name" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="date-of-birth">Date of birth (optional)</label>
+        <input class="govuk-input" type="date" id="start" name="date-of-birth"
+       value="2018-07-22">
+      </div>
+
+      {{ govukButton({
+        text: "Register"
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-m">Login</h1>
+      {{ govukInput({
+      label: {
+        text: "Username"
+      },
+      id: "login-username",
+      name: "sign-up-name"
+      }) }}
+      {{ govukInput({
+      label: {
+        text: "Password"
+      },
+      id: "login-password",
+      type: "password",
+      name: "login-password"
+    }) }}
+    {{ govukButton({
+    text: "Sign in",
+    classes: "govuk-!-margin-top-4"
+    }) }}
+  </div>
+</div>
+<p class="govuk-body-s govuk-!-margin-top-8 grey">This website works best in Firefox and Chrome V22.</p>
+{% endblock %}

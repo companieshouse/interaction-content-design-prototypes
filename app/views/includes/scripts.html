@@ -1,0 +1,24 @@
+<!-- Javascript -->
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+{% for scriptUrl in extensionConfig.scripts %}
+  <script src="{{scriptUrl}}"></script>
+{% endfor %}
+
+<script src="/public/javascripts/application.js"></script>
+<script src="/public/javascripts/jquery.popupoverlay.js"></script>
+  <script>
+    $(document).ready(function() {
+
+$('#JPO').popup({
+  pagecontainer: '#page',
+  escape: false,
+  autoopen: true,
+  blur: false
+});
+
+    });
+  </script>
+{% if useAutoStoreData %}
+  <script src="/public/javascripts/auto-store-data.js"></script>
+{% endif %}
