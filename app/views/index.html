@@ -11,6 +11,7 @@
       <!-- Add a button to close the popup (optional) -->
       <p class="JPO_close">X</p>
       <h3 class="govuk-heading-m">Sign up to our newsletter and get 10% off your first order!</h3>
+      
       {{ govukButton({
         text: "Sign up",
         classes: "govuk-!-margin-top-4"
@@ -22,6 +23,22 @@
       <h1 class="govuk-heading-l">
         Sign up
       </h1>
+      {% if errorEmail == true or errorPassword == true %}
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {% for error in errorList %}
+              <li>
+                {{error.text}}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      <p class="govuk-body-s">Click the black button when finished.</p>
+      <form action="/index" method="post">
       {{ govukInput({
       label: {
         text: "Name"
@@ -29,14 +46,15 @@
       id: "sign-up-name",
       name: "sign-up-name"
       }) }}
+      
       <div class="govuk-form-group">
-        <input class="govuk-input" id="sign-up-email" name="event-name" placeholder="Email address" type="text">
+        <input class="govuk-input" id="sign-up-email" name="sign-up-email" placeholder="Email address" type="text">
       </div>
       <div class="govuk-form-group">
-        <input class="govuk-input" id="sign-up-password" type="password" name="event-name" placeholder="Enter password" type="text">
+        <input class="govuk-input" id="sign-up-password" type="password" name="sign-up-password" placeholder="Enter password" type="text">
       </div>
       <div class="govuk-form-group">
-        <input class="govuk-input" id="sign-up-password-confirm" placeholder="Confirm password" name="event-name" type="text">
+        <input class="govuk-input" id="sign-up-password-confirm" placeholder="Confirm password" name="sign-up-password-confirm" type="text">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="date-of-birth">Date of birth (optional)</label>
@@ -47,6 +65,7 @@
       {{ govukButton({
         text: "Register"
       }) }}
+      </form>
     </div>
     <div class="govuk-grid-column-one-half">
       <h1 class="govuk-heading-m">Login</h1>
